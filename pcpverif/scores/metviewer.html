@@ -1,0 +1,43 @@
+<HTML>
+<center>
+<H1>Plotting QPF Verification Scores Using METviewer</H1>
+<a HREF="http://metviewerdev.ncep.noaa.gov/metviewer1.jsp">
+       http://metviewerdev.ncep.noaa.gov/metviewer1.jsp</a><br> 
+Databases: <B>mv_ylin_pcp, mv_ylin_pcp_erly</B>
+</center>
+<P>
+Currently the above server is only accessible from within the NCED firewall.
+<P>
+Both databases are now loaded daily by an unattended cron job.  mv_ylin_pcp is loaded for daym9 and includes 6h FSS.  mv_ylin_pcp_erly is loaded for daym2 and does not include 6h FSS. <P>
+In database <B>mv_ylin_pcp</B>:<br>
+<P>
+<UL>
+  <LI>GFS, NAM, CONUSNEST, RAP, HRRR, HREF, going back to 1 June 2017
+  <LI>FV3GFS, 1 Oct 2018 - 12 Jun 2019
+  <LI>GFSV14, from 13 Jun 2019
+  <LI>FV3NEST, starting 18 Dec 2018
+  <LI>FV3SAR, starting 29 Nov 2018
+  <LI>FV3SARX, starting 25 Jun 2019
+  <LI>FV3SARDA, starting 7 Oct 2018
+</UL>
+<P>
+In database <B>mv_ylin_pcp_erly</B>: <P>
+<UL>
+  <LI>CONUSNEST, GFS, HRRR, HRRRAK, NAM, RAP, from 1 Oct 2018
+  <LI>FV3GFS, 1 Oct 2018 - 12 Jun 2019
+  <LI>GFSV14, from 13 Jun 2019
+  <LI>FV3NEST, starting 18 Dec 2018
+  <LI>FV3SAR, starting 29 Nov 2018
+  <LI>FV3SARDA, starting 7 Oct 2018
+  <LI>FV3SARX, starting 25 Jun 2019
+</UL>
+<P>
+Due to disk space limitations on the METviewer server, the databases are often pruned.  Currently only a small subset of precip VSDBs have been loaded. 
+<P>
+ Contact Ying[dot]Lin[at]noaa[dot]gov if you'd like other precip VSDBs loaded into either database.  
+<P>
+
+Met Help: <a HREF="http://www.dtcenter.org/met/users/support/met_help.php">
+http://www.dtcenter.org/met/users/support/met_help.php</a>
+<P>
+</HTML>
