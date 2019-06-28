@@ -1,0 +1,171 @@
+-------------------------------------------------------------
+Hourly Stage IV missing data in the the NWRFC/CNRFC area: if an MRMS hourly 
+  input is missing, it would lead to no data fill in the NWRFC/CNRFC area
+  during the 6-hours (01-06Z/07-12Z/13-18Z/19-00Z) that contains the missing 
+  MRMS hour.  
+
+  MRMS cannot go back to re-make a missing hour, but anticipates
+  that the missing output problem will be addressed in Release V.12.  
+
+  The following are a list of missing MRMS hours since 13 Dec 2017 
+    (implementation of pcpanl.v3.0.0/RTMA-URMA v2.6) and the hourly Stage IV
+    affected by them (00Z in the second column is the 00Z of the second day - 
+    i.e. 1h QPE covering 23Z $day - 00Z $dayp1)
+
+  Missing Gauge QC'd MRMS      1h Stage IV with missing coverage in NW/CNRFC
+    20190626 14Z                     13-18Z
+    20190126 03Z                     01-06Z
+    20181117 19Z, 20Z                19-00Z
+    20181009 01Z, 17Z                01-06Z, 13-18Z
+    20181006 01Z                     01-06Z
+    20181002 09Z                     07-12Z
+    20180926 17Z                     13-18Z
+    20180913 14Z                     13-18Z
+    20180906 14Z,17Z,18Z             13-18Z
+    20180903 16Z, 17Z                13-18Z
+    20180903 05Z                     01-06Z
+    20180902 23Z                     19-00Z
+    20180902 05Z                     01-06Z
+    20180901 16Z,17Z                 13-18Z
+    20180901 06Z,                    01-06Z
+    20180831 17Z,22Z,23Z, 09/01 00Z  13-00Z
+    20180831 05Z                     01-06Z
+    20180830 17Z                     13-18Z
+    20180827 15Z                     13-18Z
+    20180718 12Z                     07-12Z
+    20180630 15Z                     13-18Z
+    20180628 16Z                     13-18Z
+    20180528 00-03Z                  19-00Z 27th; 01-06Z 28th
+    20180517-14Z                     13-18Z
+    20180512 16Z                     13-18Z
+    20180423-22Z                     19-00Z
+    20180412-22Z                     19-00Z
+    20180326-06-09Z                  01-12Z
+    20180227-14Z                     13-18Z
+    20180226-19-21Z                  19-00Z
+    20180222-04Z                     01-06Z
+    20180129-06Z                     01-06Z
+    20180128-00Z,22Z                 19-00Z
+    20180127-08Z,17Z,18Z,21Z         07-00Z
+    20180125-16Z                     13-18Z
+    20180124-06Z                     01-06Z
+    20180123-06Z,14Z,20Z             01-06Z, 12-00Z
+    20180120-14Z, 20Z                13-00Z
+    20180117-04Z                     01-06Z
+    20180101-15Z                     13-18Z
+
+Hour ending   Problem                 Cause
+  (UTC)
+-------------------------------------------------------------
+20180615: 11Z ConUS Stage IV missing the MBRFC region (bad QPE file, cannot
+  be read)
+20180612: 20Z ConUS Stage IV missing the MBRFC region (bad QPE file, cannot
+  be read)
+20180502: Alaska 06h QPE ending at 00/06Z/12Z and 24h QPE ending at 12Z cannot
+  be produced (affecting Stage IV and URMA). 
+Apr 2018: AWIPS build at APRFC the first week of April.  The following Alaska
+  data are unavailable as a result.  6-hourlies affect both Alaska Stage IV and
+  URMA, 24-hourlies (ending at 12Z) affect the Alaska Stage IV.
+  (list not yet complete, as of 13 Apr)
+    04/04: 6h ending at 06Z/12Z/18Z
+    04/05: all 6h (ending at 00/06/12/18Z); 24h
+    04/06: 6h ending at 00/06/12Z; 24h 
+20160810: missing 6-hourlies ending at 00/06/12Z from NWRFC.
+20160403-20160406: missing hourlies (07Z 3th - 01Z 6th) and 6-hourlies
+              (12Z 3th-06Z 5th) from NERFC.
+20140225-20140302: No 00h analysis from WGRFC.
+19Z 17- 00Z 22 Dec 2013 No hourly analysis from MBRFC.
+20131204-20131212: No 00h analysis from WGRFC.
+20131025-20131104: No 00h analysis from WGRFC.
+20130814-20130825: Missing hourlies (20Z 14th - 00Z 20th) 
+              and 6-hourlies (18Z 14th-12Z 19th, 18Z 21th-12Z 25th) from 
+              MBRFC due to AWIPS-2 installation.
+20130524-20130602: Missing 00h analysis from WGRFC.  
+20130508-20130522: No 6-hourly analysis from OHRFC. 
+19Z 20130425-20130519
+              Missing hourly analysis from OHRFC (some hourlies came through
+              on 7 May and 17-19 May, during the recovery process at OHRFC).
+20130411-20130412: 
+              No 6-hourly analysis from MARFC covering 12Z 11th-12Z 12th Apr.
+              No hourly analysis from MARFC from 20Z 11th to 00Z 12th.
+20130403-20130412: No 6-hourly analysis from OHRFC.  
+18Z 20121011- 12Z 20121014: No 6-hourly analysis from NERFC
+20120823-20120829:
+              Missing 6-hourly analysis from NCRFC
+20120515-20120913: 
+              Missing 6-hourly analysis from OHRFC
+20120229-20120301: 
+              Original (data produced in real time) 6h accumulation ending 
+              at 18Z 29 Feb, 00/06/12Z 1 Mar, 24h accumulation ending at 
+              12Z 1 Mar carry no bitmap, because only 4 RFCs sent in their
+              6-hourly analysis files for this time period, among them NWRFC,
+              whose GRIB header specified no bitmap.  NWRFC has an RFC id of
+              159, and when RFCs that have "higher" id numbers (#160-162) 
+              are missing, NWRFC's GRIB header got carried over to the 
+              Stage IV.  This problem was later fixed, and Stage IV data 
+              obtained from NCAR CODIAC archive for this time period would
+              have the problem corrected (i.e. with bitmap indicating large
+              areas of missing data, since we only received data from four
+              RFCs).
+
+20110502, 12,14,15,16Z: bad hourly analyses from OHRFC.  
+
+2011042412:   Bad analysis from OHRFC.  Three files were received from OHRFC
+              for this hour: the first two, received at 12:20Z and 13:21Z, 
+              appeared to be OK (max value: 34.875mm), but the last file, 
+              received at 19:21Z, has a max value of 86.125mm.
+
+20091002-1003 No hourly analysis during 16Z 2 - 00Z 3 Oct.  No 6-hourly 
+              analysis for 6-hour periods ending 18Z 2 Oct, 00/06/12Z 3 Oct.
+              No 24h accumulation ending 12Z 20091003.  Reason: data outage,
+              did not receive hourly/6-hourly analyses from any RFC for these
+              times.  
+             
+20090318      for the 24h period ending 12Z 20090318, many 6-hourly regional
+              analyses from the RFCs were not received, resulting in sparse
+              coverage in both 6-hourly and 24-hourly analyses for this period.
+
+20090309-0310 From around 18Z 9 Mar to about 14Z 10 Mar, NCEP did not receive
+              incoming regional analyses from the RFCs through TOC, resulting
+              in sparse coverage for hourly Stage IV from 11Z 9th to 06Z 10th.
+       
+20090127      6h and 24h accumulations ending 2009012712 showed over 300mm
+              of precipitation in western KY/TN area.  This is likely the
+              result of contamination by the heavy ice in this region (thanks
+              to Richard Grumm of NWS State College, PA for input).  
+20081102-
+  20081103:   The following files are missing: 
+                 6-hourly accumulations ending 2008110118
+                 All 20081102 files
+                 6-hourly accumulations ending 2008110300
+                 24-hour accumulations ending 2008110312
+
+              Cause of this outage: around 13Z 31 Oct, we began receiving from 
+              CBRFC what appeared to be forecasts 2 or 3 days into the future: 
+              for example, in 31 Oct, there are files with GRIB header that 
+              indicate that they are valid at 60-66 hours (with a reference 
+              time of 12Z 31 Oct).   This has caused some problems in our 
+              mosaic processing since it was set up to handle 'past' (analysis)
+              files, not files with future time stamps.  Turned out CBRFC began
+              migrating to a different machine and somehow the forecast files 
+              got into the analysis stream sent to us.  On 4 Nov CBRFC 
+              discontinued these rogue sends and things went back to normal.  
+
+2004101902-03: Hourly analysis files corrupted, cannot be de-compressed.
+20040303,06-12Z: no hourly analysis.  Received no regional analyses from
+              the RFCs during this time.
+2003082619-2003082718: 
+              No hourly analysis 2003082619-2003082700.  Sparse hourly
+              coverage 2003082701-2003082718.  06Z analysis ending 
+              2003082700 is missing.  06Z analysis ending 2003082618 had 
+              input from CBRFC only.  
+              Reason: power outage during the evening of Tue 26 Aug.  Even
+              after the computers recovered, the outage-related backlogs
+              caused disruption in incoming dataflow.  
+2003071123-2003071206:
+              No hourly analysis.  Major network disruption of over 13 
+              hours during the first half (UTC, approx.) of Saturday 12 Jul.  
+              No regional hourly analysis received for these hours.  Coverage
+              of hourly analysis from 07-12Z are spotty.  
+
+        
