@@ -1,0 +1,2 @@
+scp main.php wd22yl@emcrzdm:/home/www/emc/htdocs/users/verification/precip/rtma-urma.v2.8/pcpurma/php/.
+scp geo.php wd22yl@emcrzdm:/home/www/emc/htdocs/users/verification/precip/rtma-urma.v2.8/pcpurma/php/.
