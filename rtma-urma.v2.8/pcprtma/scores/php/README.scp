@@ -1,0 +1,5 @@
+scp scores.php wd22yl@emcrzdm:/home/www/emc/htdocs/users/verification/precip/rtma-urma.v2.8/pcprtma/scores/php/.
+scp jquery-3.1.1.min.js wd22yl@emcrzdm:/home/www/emc/htdocs/users/verification/precip/rtma-urma.v2.8/pcprtma/scores/php/.
+scp functions.js wd22yl@emcrzdm:/home/www/emc/htdocs/users/verification/precip/rtma-urma.v2.8/pcprtma/scores/php/.
+scp main.css wd22yl@emcrzdm:/home/www/emc/htdocs/users/verification/precip/rtma-urma.v2.8/pcprtma/scores/php/.
+scp style.css wd22yl@emcrzdm:/home/www/emc/htdocs/users/verification/precip/rtma-urma.v2.8/pcprtma/scores/php/.

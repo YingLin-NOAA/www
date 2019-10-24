@@ -3,7 +3,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-   <title>Download data for pcpRTMA/URMAv2.8, PCPANLv4.0</title>
+<title>GEFS Homepage</title>
 <link rel="stylesheet" type="text/css" href="main.css">
 <script src="jquery-3.1.1.min.js"></script>
 <script type="text/javascript" src="functions.js"></script>
@@ -16,7 +16,7 @@
 
 <!-- Head element -->
 <div class="page-top">
-	<span><a style="color:#ffffff">Download pcpRTMA/URMAv2.8/PCPANLv4.0.0 Data</a></span>
+	<span><a style="color:#ffffff">GLOBAL ENSEMBLE FORECAST SYSTEM (GEFS) VERIFICATION</a></span>
 </div>
 
 <!-- Top menu -->
@@ -61,36 +61,26 @@
 <body>
 <div id="pageContents">
 <center>
-<img src="https://www.emc.ncep.noaa.gov/GFS/gifs/ncep_logo.gif" alt="" wiidth="200" />
-</center>
+<img src="../../../../style/images/ncep_logo.gif" alt="" wiidth="200" />
 <br>
-<B>Pushed by NCO to para NOMADS:</B>
-<UL>
-   <LI><a href=https://para.nomads.ncep.noaa.gov/pub/data/nccf/com/rtma/para/
-       target="_blank">para.nomads.ncep.noaa.gov/pub/data/nccf/com/rtma/para/</a>pcprtma.yyyymmdd - pcpRTMA v2.8.0
-   <LI><a href=https://para.nomads.ncep.noaa.gov/pub/data/nccf/com/urma/para/
-       target="_blank">para.nomads.ncep.noaa.gov/pub/data/nccf/com/urma/para/</a>pcpurma.yyyymmdd - pcpURMA v2.8.0
-   <LI><a href=https://para.nomads.ncep.noaa.gov/pub/data/nccf/com/pcpanl/para/
-       target="_blank">para.nomads.ncep.noaa.gov/pub/data/nccf/com/urma/para/</a>pcpanl.yyyymmdd - PCPANL v4.0.0
-</UL>
-<P>
-<B>On development ftp site (more gaps, but going back further):</B>
-<UL>
-   <LI><a href=https://ftp.emc.ncep.noaa.gov/mmb/precip/rtma.v2.8.0/
-       target="_blank">ftp.emc.ncep.noaa.gov/mmb/precip/rtma.v2.8.0/</a>
-                        - pcpRTMA v2.8
-   <LI><a href=https://ftp.emc.ncep.noaa.gov/mmb/precip/urma.v2.8.0/
-       target="_blank">ftp.emc.ncep.noaa.gov/mmb/precip/urma.v2.8.0/</a>
-                        - pcpURMA v2.8
-   <LI><a href=https://ftp.emc.ncep.noaa.gov/mmb/precip/urma.v2.8.0.noblend/
-       target="_blank">ftp.emc.ncep.noaa.gov/mmb/precip/urma.v2.8.0.noblend/</a>
-                       - older pcpURMA v2.8 parallel, w/o ConUS blending of 
-                        offshore filling
-   <LI><a href=https://ftp.emc.ncep.noaa.gov/mmb/precip/pcpanl.v4.0.0/
-       target="_blank">ftp.emc.ncep.noaa.gov/mmb/precip/pcpanl.v4.0.0/</a>
-                        - PCPANL v4.0.0
-</UL>
-
+<br>
+The National Centers for Environmental Prediction (NCEP) Global Ensemble Forecast System (GEFS) accounts for uncertainty in weather forecasts by generating an ensemble of multiple forecasts, each slightly different (i.e., perturbed) from the original forecast, in order to capture the range of possible forecast outcomes.
+<br>
+<br>
+<a style="color:#ff0000">This webpage provides information on <u>operational GEFS forecast skill</u>.
+<br>
+Please use the links on the left to navigate to GEFS verification statistics.</a> 
+<br>
+<br>
+<b>Additional Information:</b>
+<br>
+GEFSv11 is the current operational version of GEFS. GEFSv11 is run 4-times daily (0000, 0600, 1200, and 1800 UTC) with 21 ensemble members out to 16 days. You can learn more about the GEFSv11 configuration <a href=https://www.emc.ncep.noaa.gov/GEFS/gmb/Doc-5.1.1_EPS_activities_NCEP_GEFS.pdf target="_blank">here</a>. 
+<br>
+<br>
+The official evaluation of GEFSv12 is scheduled for Q2FY20.
+<br>
+<a style="color:#1917BE"><b>GEFSv12 Official Evaluation Webpage: </b><a href=https://www.emc.ncep.noaa.gov/users/meg/gefsv12/ target="_blank">[click here]</a>.</a>
+</center>
 </div>
 </body>
 

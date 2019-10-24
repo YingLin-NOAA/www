@@ -3,10 +3,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-   <title>Download data for pcpRTMA/URMAv2.8, PCPANLv4.0</title>
-<link rel="stylesheet" type="text/css" href="main.css">
+<title>GEFS</title>
+<link rel="stylesheet" type="text/css" href="style.css">
 <script src="jquery-3.1.1.min.js"></script>
-<script type="text/javascript" src="functions.js"></script>
+<script type="text/javascript" src="functions_ts.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
@@ -16,87 +16,57 @@
 
 <!-- Head element -->
 <div class="page-top">
-	<span><a style="color:#ffffff">Download pcpRTMA/URMAv2.8/PCPANLv4.0.0 Data</a></span>
+	<span><a style="color:#ffffff">GLOBAL ENSEMBLE FORECAST SYSTEM (GEFS) VERIFICATION</a></span>
 </div>
 
 <!-- Top menu -->
 <div class="page-menu"><div class="table">
 	
-<!--        <div class="element">
+ <!--       <div class="element">
                 <span class="bold">Valid:</span>
                 <select id="validtime" onchange="changeValidtime(this.value);"></select>
-            </div> 
-
+        </div>
+-->
+<!--        <div class="element">
+                <span class="bold">Region:</span>
+                <select id="domain" onchange="changeDomain(this.value)"></select>
+        </div>
+-->
         <div class="element">
                 <span class="bold">Season:</span>
                 <select id="season" onchange="changeSeason(this.value)"></select>
         </div>
         <div class="element">
-                <span class="bold">Region:</span>
-                <select id="domain" onchange="changeDomain(this.value)"></select>
-        </div>
-        <div class="element">
-                <span class="bold">Statistic:</span>
+                <span class="bold">Forecast Lead:</span>
                 <select id="variable" onchange="changeVariable(this.value)"></select>
         </div>
-        <div class="element">
-                <span class="bold">Level:</span>
+	<div class="element">
+                <span class="bold">Statistic:</span>
                 <select id="level" onchange="changeLevel(this.value)"></select>
         </div>
-
--->
+        <div class="element">
+                <span class="bold">Plot Type:</span>
+                <select id="maptype" onchange="changeMaptype(this.value)"></select>
+        </div>
 
 <!-- /Top menu -->
 </div></div>
 
 <!-- Middle menu -->
-<!-- <div class="page-middle" id="page-middle"> -->
+<div class="page-middle" id="page-middle">
+Left/Right arrow keys = Change forecast lead | Up/Down arrow keys = Change statistic
+<br>For additional information on this image, <button class="infobutton" id="myBtn">click here</button>
+<div id="myModal" class="modal">
+  <div class="modal-content" style="font-size:130%;">
+    <span class="close">&times;</span>
+    Additional Image Information
+    <embed width=100% height=90% src="gefs_info_precip_ts.php">
+  </div>
+</div>
 <!-- /Middle menu -->
 </div>
 
-
 <div id="loading"><img style="width:100%" src="loading.png"></div>
-
-
-<body>
-<div id="pageContents">
-<center>
-<img src="https://www.emc.ncep.noaa.gov/GFS/gifs/ncep_logo.gif" alt="" wiidth="200" />
-</center>
-<br>
-<B>Pushed by NCO to para NOMADS:</B>
-<UL>
-   <LI><a href=https://para.nomads.ncep.noaa.gov/pub/data/nccf/com/rtma/para/
-       target="_blank">para.nomads.ncep.noaa.gov/pub/data/nccf/com/rtma/para/</a>pcprtma.yyyymmdd - pcpRTMA v2.8.0
-   <LI><a href=https://para.nomads.ncep.noaa.gov/pub/data/nccf/com/urma/para/
-       target="_blank">para.nomads.ncep.noaa.gov/pub/data/nccf/com/urma/para/</a>pcpurma.yyyymmdd - pcpURMA v2.8.0
-   <LI><a href=https://para.nomads.ncep.noaa.gov/pub/data/nccf/com/pcpanl/para/
-       target="_blank">para.nomads.ncep.noaa.gov/pub/data/nccf/com/urma/para/</a>pcpanl.yyyymmdd - PCPANL v4.0.0
-</UL>
-<P>
-<B>On development ftp site (more gaps, but going back further):</B>
-<UL>
-   <LI><a href=https://ftp.emc.ncep.noaa.gov/mmb/precip/rtma.v2.8.0/
-       target="_blank">ftp.emc.ncep.noaa.gov/mmb/precip/rtma.v2.8.0/</a>
-                        - pcpRTMA v2.8
-   <LI><a href=https://ftp.emc.ncep.noaa.gov/mmb/precip/urma.v2.8.0/
-       target="_blank">ftp.emc.ncep.noaa.gov/mmb/precip/urma.v2.8.0/</a>
-                        - pcpURMA v2.8
-   <LI><a href=https://ftp.emc.ncep.noaa.gov/mmb/precip/urma.v2.8.0.noblend/
-       target="_blank">ftp.emc.ncep.noaa.gov/mmb/precip/urma.v2.8.0.noblend/</a>
-                       - older pcpURMA v2.8 parallel, w/o ConUS blending of 
-                        offshore filling
-   <LI><a href=https://ftp.emc.ncep.noaa.gov/mmb/precip/pcpanl.v4.0.0/
-       target="_blank">ftp.emc.ncep.noaa.gov/mmb/precip/pcpanl.v4.0.0/</a>
-                        - PCPANL v4.0.0
-</UL>
-
-</div>
-</body>
-
-
-
-
 
 <!-- Image -->
 <div id="page-map">
@@ -109,6 +79,32 @@
 
 
 <script type="text/javascript">
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
 //====================================================================================================
 //User-defined variables
 //====================================================================================================
@@ -128,7 +124,8 @@ For X and Y, labeling one X or Y represents an integer (e.g. 0, 10, 20). Multipl
 format (e.g. XX = 00, 06, 12 --- XXX = 000, 006, 012).
 */
 
-var url = "https://www.emc.ncep.noaa.gov/gmb/yluo/naefs/VRFY_STATS/NCEP_NCEPb/DDDzLLL_VVV_SSS.gif";
+/* var url = "https://www.emc.ncep.noaa.gov/gmb/yluo/naefs/VRFY_STATS/NCEP_NCEPb/DDDtLLL_VVV_SSS.gif"; */
+var url = "https://www.emc.ncep.noaa.gov/gmb/yluo/GEFS_VRFY/ecmwf/SSS/CONUSprcp_LLL_TS_VVV.gif"
 /* var url = "https://www.emc.ncep.noaa.gov/mmb/gmanikin/fv3gfs/20180301/fv3_DDD_VVV_2018030100_0Y.png"; */
 /*  var url = "https://www.emc.ncep.noaa.gov/users/Alicia.Bentley/fv3gefs/2018030100/images/DDD/mean_diff/VVV_Y.png"; */
 
@@ -141,84 +138,53 @@ var domains = [];
 var levels = [];
 var seasons = [];
 var maptypes = [];
-var validtimes = []; 
+var validtimes = [];
 
 
 
 variables.push({
-        displayName: "ROC curve",
-        name: "roc",
+        displayName: "Day 1",
+        name: "day1",
 });
 variables.push({
-        displayName: "Economic Values",
-        name: "eval",
+        displayName: "Day 2",
+        name: "day2",
 });
 variables.push({
-        displayName: "Ranked Prob Skill Score",
-        name: "rpss",
+        displayName: "Day 3",
+        name: "day3",
 });
 variables.push({
-        displayName: "Brier Skill Score",
-        name: "bss",
+        displayName: "Day 5",
+        name: "day5",
 });
 variables.push({
+        displayName: "Day 8",
+        name: "day8",
+});
+
+
+
+
+levels.push({
         displayName: "CRP Score",
-        name: "crp",
-});
-variables.push({
-        displayName: "CRP Skill Score",
-        name: "crps",
-});
-variables.push({
-        displayName: "RMSE/Ensemble Spread",
-        name: "rms",
-});
-variables.push({
-        displayName: "Mean/Absolute Error",
-        name: "err",
-});
-variables.push({
-        displayName: "Anomaly Correlation",
-        name: "pac",
-});
-variables.push({
-        displayName: "Histogram Distrib.",
-        name: "his",
-});
-
-
-
-domains.push({
-        displayName: "N. Hemisphere",
-        name: "nh",
-});
-domains.push({
-        displayName: "S. Hemisphere",
-        name: "sh",
-});
-domains.push({
-        displayName: "Tropics",
-        name: "tr",
-});
-
-
-
-
-
-
-
-levels.push({
-        displayName: "500 hPa",
-        name: "500",
+        name: "CRPS",
 });
 levels.push({
-        displayName: "1000 hPa",
-        name: "1000",
+        displayName: "RMSE/Spread",
+        name: "RMSE",
+});
+levels.push({
+        displayName: "Mean/Abs. Error",
+        name: "MERR",
 });
 
 
 
-
+seasons.push({
+        displayName: "Summer 2019",
+        name: "sum2019",
+});
 seasons.push({
         displayName: "Spring 2019",
         name: "spr2019",
@@ -257,25 +223,28 @@ seasons.push({
 });
 
 
-validtimes.push({
-        displayName: "0000 UTC",
-        name: "00Z",
-});
-validtimes.push({
-        displayName: "1200 UTC",
-        name: "12Z",
-});
+
 
 
 maptypes.push({
-        url: "geo_00Z.php",
-        displayName: "0000 UTC",
-        name: "geo_00Z",
+        url: "precip_ts.php",
+        displayName: "Skill Score Time Series",
+        name: "precip_ts",
 });
 maptypes.push({
-        url: "geo_12Z.php",
-        displayName: "1200 UTC",
-        name: "geo_12Z",
+        url: "precip_ss.php",
+        displayName: "Skill Scores by Forecast Lead",
+        name: "precip_ss",
+});
+maptypes.push({
+        url: "precip_pr.php",
+        displayName: "Skill Scores by Precip. Rate",
+        name: "precip_pr",
+});
+maptypes.push({
+        url: "precip_rd.php",
+        displayName: "Reliability Diagrams",
+        name: "precip_rd",
 });
 
 //====================================================================================================
@@ -328,10 +297,10 @@ function initialize(){
 	
 	//Set image object based on default variables
 	imageObj = {
-		variable: "roc",
-		domain: "nh",
-		level: "500",
-                season: "spr2019",
+		variable: "day1",
+//		domain: "nh",
+		level: "RMSE",
+                season: "sum2019",
 //                validtime: "00Z",
 //                frame: startFrame,
 	};
@@ -355,10 +324,12 @@ function initialize(){
 	
 	//Populate forecast hour and dprog/dt arrays for this run and frame
 	populateMenu('variable');
-	populateMenu('domain');
+//	populateMenu('domain');
 	populateMenu('level');
 	populateMenu('season');
- //       populateMenu('validtime');
+//        populateMenu('validtime');
+        populateMenu('maptype');
+
 	
 	//Populate the frames arrays
 	frames = [];

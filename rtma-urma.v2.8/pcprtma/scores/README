@@ -1,0 +1,4 @@
+index.html: originally copied from Alicia's 
+  /home/www/emc/htdocs/users/verification/global/gefs/ops/geo/index.html
+
+scp index.html wd22yl@emcrzdm:/home/www/emc/htdocs/users/verification/precip/rtma-urma.v2.8/pcprtma/scores/.

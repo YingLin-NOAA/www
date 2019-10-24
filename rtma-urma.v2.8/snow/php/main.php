@@ -3,7 +3,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-   <title>Download data for pcpRTMA/URMAv2.8, PCPANLv4.0</title>
+<title>pcpRTMA/URMA v2.8</title>
 <link rel="stylesheet" type="text/css" href="main.css">
 <script src="jquery-3.1.1.min.js"></script>
 <script type="text/javascript" src="functions.js"></script>
@@ -16,7 +16,7 @@
 
 <!-- Head element -->
 <div class="page-top">
-	<span><a style="color:#ffffff">Download pcpRTMA/URMAv2.8/PCPANLv4.0.0 Data</a></span>
+	<span><a style="color:#ffffff">Snowfall Analysis in URMAv2.8</a></span>
 </div>
 
 <!-- Top menu -->
@@ -62,35 +62,13 @@
 <div id="pageContents">
 <center>
 <img src="https://www.emc.ncep.noaa.gov/GFS/gifs/ncep_logo.gif" alt="" wiidth="200" />
+<P><P><P>
+<B>Source of analysis: <a href=https://www.nohrsc.noaa.gov/snowfall/ target="_blank">NOHRSC</a></B>
 </center>
-<br>
-<B>Pushed by NCO to para NOMADS:</B>
-<UL>
-   <LI><a href=https://para.nomads.ncep.noaa.gov/pub/data/nccf/com/rtma/para/
-       target="_blank">para.nomads.ncep.noaa.gov/pub/data/nccf/com/rtma/para/</a>pcprtma.yyyymmdd - pcpRTMA v2.8.0
-   <LI><a href=https://para.nomads.ncep.noaa.gov/pub/data/nccf/com/urma/para/
-       target="_blank">para.nomads.ncep.noaa.gov/pub/data/nccf/com/urma/para/</a>pcpurma.yyyymmdd - pcpURMA v2.8.0
-   <LI><a href=https://para.nomads.ncep.noaa.gov/pub/data/nccf/com/pcpanl/para/
-       target="_blank">para.nomads.ncep.noaa.gov/pub/data/nccf/com/urma/para/</a>pcpanl.yyyymmdd - PCPANL v4.0.0
-</UL>
 <P>
-<B>On development ftp site (more gaps, but going back further):</B>
-<UL>
-   <LI><a href=https://ftp.emc.ncep.noaa.gov/mmb/precip/rtma.v2.8.0/
-       target="_blank">ftp.emc.ncep.noaa.gov/mmb/precip/rtma.v2.8.0/</a>
-                        - pcpRTMA v2.8
-   <LI><a href=https://ftp.emc.ncep.noaa.gov/mmb/precip/urma.v2.8.0/
-       target="_blank">ftp.emc.ncep.noaa.gov/mmb/precip/urma.v2.8.0/</a>
-                        - pcpURMA v2.8
-   <LI><a href=https://ftp.emc.ncep.noaa.gov/mmb/precip/urma.v2.8.0.noblend/
-       target="_blank">ftp.emc.ncep.noaa.gov/mmb/precip/urma.v2.8.0.noblend/</a>
-                       - older pcpURMA v2.8 parallel, w/o ConUS blending of 
-                        offshore filling
-   <LI><a href=https://ftp.emc.ncep.noaa.gov/mmb/precip/pcpanl.v4.0.0/
-       target="_blank">ftp.emc.ncep.noaa.gov/mmb/precip/pcpanl.v4.0.0/</a>
-                        - PCPANL v4.0.0
-</UL>
-
+Plan to add NOHRSC 6h/24h snowfall analysis to the precipitation URMA suite (dependent on data received at NCEP via official ftp-in).
+<P>
+   Current parallel run: at 18:00Z each day, unofficially fetch (wget) and process NOHRSC data for current day, $daym1/$daym2/$daym3/$daym5/$daym7.  Data mapped from NOHRSC’s g184 to the expanded ConUS grid (WEXP) for NBM.  g184 data sent out to AWIPS.  
 </div>
 </body>
 

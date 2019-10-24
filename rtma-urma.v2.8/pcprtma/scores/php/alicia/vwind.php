@@ -3,8 +3,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-   <title>Download data for pcpRTMA/URMAv2.8, PCPANLv4.0</title>
-<link rel="stylesheet" type="text/css" href="main.css">
+<title>GEFS</title>
+<link rel="stylesheet" type="text/css" href="style.css">
 <script src="jquery-3.1.1.min.js"></script>
 <script type="text/javascript" src="functions.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,7 +16,7 @@
 
 <!-- Head element -->
 <div class="page-top">
-	<span><a style="color:#ffffff">Download pcpRTMA/URMAv2.8/PCPANLv4.0.0 Data</a></span>
+	<span><a style="color:#ffffff">GLOBAL ENSEMBLE FORECAST SYSTEM (GEFS) VERIFICATION</a></span>
 </div>
 
 <!-- Top menu -->
@@ -25,8 +25,8 @@
 <!--        <div class="element">
                 <span class="bold">Valid:</span>
                 <select id="validtime" onchange="changeValidtime(this.value);"></select>
-            </div> 
-
+        </div>
+-->
         <div class="element">
                 <span class="bold">Season:</span>
                 <select id="season" onchange="changeSeason(this.value)"></select>
@@ -44,59 +44,24 @@
                 <select id="level" onchange="changeLevel(this.value)"></select>
         </div>
 
--->
-
 <!-- /Top menu -->
 </div></div>
 
 <!-- Middle menu -->
-<!-- <div class="page-middle" id="page-middle"> -->
+<div class="page-middle" id="page-middle">
+Left/Right arrow keys = Change statistic | Up/Down arrow keys = Change level
+<br>For additional information on this image, <button class="infobutton" id="myBtn">click here</button>
+<div id="myModal" class="modal">
+  <div class="modal-content" style="font-size:130%;">
+    <span class="close">&times;</span>
+    Additional Image Information
+    <embed width=100% height=90% src="gefs_info.php">
+  </div>
+</div>
 <!-- /Middle menu -->
 </div>
 
-
 <div id="loading"><img style="width:100%" src="loading.png"></div>
-
-
-<body>
-<div id="pageContents">
-<center>
-<img src="https://www.emc.ncep.noaa.gov/GFS/gifs/ncep_logo.gif" alt="" wiidth="200" />
-</center>
-<br>
-<B>Pushed by NCO to para NOMADS:</B>
-<UL>
-   <LI><a href=https://para.nomads.ncep.noaa.gov/pub/data/nccf/com/rtma/para/
-       target="_blank">para.nomads.ncep.noaa.gov/pub/data/nccf/com/rtma/para/</a>pcprtma.yyyymmdd - pcpRTMA v2.8.0
-   <LI><a href=https://para.nomads.ncep.noaa.gov/pub/data/nccf/com/urma/para/
-       target="_blank">para.nomads.ncep.noaa.gov/pub/data/nccf/com/urma/para/</a>pcpurma.yyyymmdd - pcpURMA v2.8.0
-   <LI><a href=https://para.nomads.ncep.noaa.gov/pub/data/nccf/com/pcpanl/para/
-       target="_blank">para.nomads.ncep.noaa.gov/pub/data/nccf/com/urma/para/</a>pcpanl.yyyymmdd - PCPANL v4.0.0
-</UL>
-<P>
-<B>On development ftp site (more gaps, but going back further):</B>
-<UL>
-   <LI><a href=https://ftp.emc.ncep.noaa.gov/mmb/precip/rtma.v2.8.0/
-       target="_blank">ftp.emc.ncep.noaa.gov/mmb/precip/rtma.v2.8.0/</a>
-                        - pcpRTMA v2.8
-   <LI><a href=https://ftp.emc.ncep.noaa.gov/mmb/precip/urma.v2.8.0/
-       target="_blank">ftp.emc.ncep.noaa.gov/mmb/precip/urma.v2.8.0/</a>
-                        - pcpURMA v2.8
-   <LI><a href=https://ftp.emc.ncep.noaa.gov/mmb/precip/urma.v2.8.0.noblend/
-       target="_blank">ftp.emc.ncep.noaa.gov/mmb/precip/urma.v2.8.0.noblend/</a>
-                       - older pcpURMA v2.8 parallel, w/o ConUS blending of 
-                        offshore filling
-   <LI><a href=https://ftp.emc.ncep.noaa.gov/mmb/precip/pcpanl.v4.0.0/
-       target="_blank">ftp.emc.ncep.noaa.gov/mmb/precip/pcpanl.v4.0.0/</a>
-                        - PCPANL v4.0.0
-</UL>
-
-</div>
-</body>
-
-
-
-
 
 <!-- Image -->
 <div id="page-map">
@@ -109,6 +74,32 @@
 
 
 <script type="text/javascript">
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
 //====================================================================================================
 //User-defined variables
 //====================================================================================================
@@ -128,7 +119,7 @@ For X and Y, labeling one X or Y represents an integer (e.g. 0, 10, 20). Multipl
 format (e.g. XX = 00, 06, 12 --- XXX = 000, 006, 012).
 */
 
-var url = "https://www.emc.ncep.noaa.gov/gmb/yluo/naefs/VRFY_STATS/NCEP_NCEPb/DDDzLLL_VVV_SSS.gif";
+var url = "https://www.emc.ncep.noaa.gov/gmb/yluo/test/ECMWF/DDDvLLL_VVV_SSS.gif";
 /* var url = "https://www.emc.ncep.noaa.gov/mmb/gmanikin/fv3gfs/20180301/fv3_DDD_VVV_2018030100_0Y.png"; */
 /*  var url = "https://www.emc.ncep.noaa.gov/users/Alicia.Bentley/fv3gefs/2018030100/images/DDD/mean_diff/VVV_Y.png"; */
 
@@ -141,10 +132,13 @@ var domains = [];
 var levels = [];
 var seasons = [];
 var maptypes = [];
-var validtimes = []; 
+var validtimes = [];
 
 
-
+variables.push({
+        displayName: "RMSE/Ensemble Spread",
+        name: "rms",
+});
 variables.push({
         displayName: "ROC curve",
         name: "roc",
@@ -170,20 +164,12 @@ variables.push({
         name: "crps",
 });
 variables.push({
-        displayName: "RMSE/Ensemble Spread",
-        name: "rms",
-});
-variables.push({
         displayName: "Mean/Absolute Error",
         name: "err",
 });
 variables.push({
         displayName: "Anomaly Correlation",
         name: "pac",
-});
-variables.push({
-        displayName: "Histogram Distrib.",
-        name: "his",
 });
 
 
@@ -203,22 +189,29 @@ domains.push({
 
 
 
-
-
-
-
 levels.push({
-        displayName: "500 hPa",
-        name: "500",
+        displayName: "250 hPa",
+        name: "250",
 });
 levels.push({
-        displayName: "1000 hPa",
-        name: "1000",
+        displayName: "850 hPa",
+        name: "850",
+});
+levels.push({
+        displayName: "10 m",
+        name: "10m",
 });
 
 
 
 
+
+
+
+seasons.push({
+        displayName: "Summer 2019",
+        name: "sum2019",
+});
 seasons.push({
         displayName: "Spring 2019",
         name: "spr2019",
@@ -328,10 +321,10 @@ function initialize(){
 	
 	//Set image object based on default variables
 	imageObj = {
-		variable: "roc",
+		variable: "rms",
 		domain: "nh",
-		level: "500",
-                season: "spr2019",
+		level: "250",
+                season: "sum2019",
 //                validtime: "00Z",
 //                frame: startFrame,
 	};

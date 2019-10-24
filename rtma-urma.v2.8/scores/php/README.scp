@@ -1,0 +1,4 @@
+scp scores.php wd22yl@emcrzdm:/home/www/emc/htdocs/users/verification/precip/rtma-urma.v2.8/scores/php/.
+scp functions.js wd22yl@emcrzdm:/home/www/emc/htdocs/users/verification/precip/rtma-urma.v2.8/scores/php/.
+scp *.js *.php *.png *.css wd22yl@emcrzdm:/home/www/emc/htdocs/users/verification/precip/rtma-urma.v2.8/scores/php/.
+
