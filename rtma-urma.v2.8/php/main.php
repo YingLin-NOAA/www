@@ -22,29 +22,6 @@
 <!-- Top menu -->
 <div class="page-menu"><div class="table">
 	
-<!--        <div class="element">
-                <span class="bold">Valid:</span>
-                <select id="validtime" onchange="changeValidtime(this.value);"></select>
-            </div> 
-
-        <div class="element">
-                <span class="bold">Season:</span>
-                <select id="season" onchange="changeSeason(this.value)"></select>
-        </div>
-        <div class="element">
-                <span class="bold">Region:</span>
-                <select id="domain" onchange="changeDomain(this.value)"></select>
-        </div>
-        <div class="element">
-                <span class="bold">Statistic:</span>
-                <select id="variable" onchange="changeVariable(this.value)"></select>
-        </div>
-        <div class="element">
-                <span class="bold">Level:</span>
-                <select id="level" onchange="changeLevel(this.value)"></select>
-        </div>
-
--->
 
 <!-- /Top menu -->
 </div></div>
@@ -66,20 +43,24 @@
 <br>
 <B>Summary of Changes:</B>
 <UL>
-   <LI>pcpRTMA: replace first run Stage II/IV with radar-only MRMS as source
-   <LI>pcpURMA
-      <UL>
-         <LI> Add NOHRSC snowfall analysis
-         <LI> blending for a smoother offshore filling with MRMS and CMORPH
-      </UL>
-   <LI>PCPANLv4.0.0 (PCPANL is upstream of pcpRTMA/pcpURMA)
-      <UL>
-         <LI> Retire Stage II analysis
-         <LI> Stage IV output changed from GRIB1 to GRIB2
-      </UL>
+  <LI>pcpRTMA: replace first run Stage II/IV with radar-only MRMS as source
+  <LI>pcpURMA
+    <UL>
+      <LI> Add NOHRSC snowfall analysis
+      <LI> blending for a smoother offshore filling with MRMS and CMORPH
+    </UL>
+  <LI>PCPANLv4.0.0 (PCPANL is upstream of pcpRTMA/pcpURMA)
+    <UL>
+      <LI> Retire Stage II analysis
+      <LI> Stage IV output changed from GRIB1 to GRIB2
+    </UL>
 </UL>
 <P>
-	   <a href="https://docs.google.com/presentation/d/1GUjHKmD56AR1fxzgF-LexBsJTfs0KNEG4O7xonZpJ7g/edit?usp=sharing">Details about the changes (Google Slides)</a>
+<a href="https://docs.google.com/presentation/d/1GUjHKmD56AR1fxzgF-LexBsJTfs0KNEG4O7xonZpJ7g/edit?usp=sharing">Details about the changes (Google Slides)</a>
+<P>
+EMC Model Evaluation Group's 
+<a href=https://www.emc.ncep.noaa.gov/users/meg/rtma_urma_v2p8/ target="_blank">
+Official RTMA/URMA v2.8 Official Evaluation Site</a>
 </div>
 </body>
 

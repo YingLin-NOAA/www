@@ -13,6 +13,12 @@ Hourly Stage IV missing data in the the NWRFC/CNRFC area: if an MRMS hourly
     i.e. 1h QPE covering 23Z $day - 00Z $dayp1)
 
   Missing Gauge QC'd MRMS      1h Stage IV with missing coverage in NW/CNRFC
+    20200214 01-02Z                  01-06Z
+    20191205 17Z                     13-18Z
+    20191126 01,02,04Z               01-06Z
+    20191125 13,14Z                  13-18Z
+    20191124 05-07Z, 22-23Z          01-12Z, 19-00Z
+    20191114 13Z                     13-18Z
     20190828 14Z                     13-18Z
     20190626 14Z                     13-18Z
     20190126 03Z                     01-06Z

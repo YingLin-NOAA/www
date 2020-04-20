@@ -68,31 +68,31 @@ window.onclick = function(event) {
 		</div>
 		<div id="menu">
 			<ul>
-                            <li class="current_page_item"><a href="" accesskey="1" title="">Home</a></li>
-                            <li><a href="daily.test" accesskey="1" title="">DAILY PLOTS<br>CONUS/OCONUS</a></li>
-                            <li><a href="/users/verification/precip/rtma-urma.v2.8/" accesskey="2" title="">pcpRTMA/URMA v2.8</a></li>
-                            <li><a href="scores" accesskey="3" title="">OPNL MODEL<br>QPF SCORES</a></li>
+                            <li><a href="/users/verification/precip/pcpverif/index.html" accesskey="1" title="">Home</a></li>
+                            <li class="current_page_item"><a href="" accesskey="1" title="">DAILY PLOTS<br>CONUS/OCONUS</a></li>
+                            <li><a href="../scores.fv3/rglpara.html" accesskey="2" title="">CAM SCORES</a></li>
+                            <li><a href="../scores.fv3" accesskey="3" title="">GFS SCORES</a></li>
+                            <li><a href="../scores" accesskey="4" title="">OPNL MODEL<br>QPF SCORES</a></li>
                             <div class="dropdown">
-                                <button onclick="createDropdown(this)" class="dropbtn" accesskey="5">Under reconstruction&rsaquo;&rsaquo;</button>
-                                     <div id="Dropdown_fv3_scores" class="dropdown-content">
-                                         <a href="scores.fv3/rglpara.html">CAM Scores</a>
-                                         <a href="scores.fv3/">FV3GFS scores</a>
+                                <button onclick="createDropdown(this)" class="dropbtn" accesskey="5">RTMA/URMA &rsaquo;&rsaquo;</button>
+                                     <div id="Dropdown_rtma_urma" class="dropdown-content">
+                                         <a href="https://www.emc.ncep.noaa.gov/mmb/ylin/pcpanl/rtma/v2p8/">pcpRTMA</a>
+                                         <a href="https://www.emc.ncep.noaa.gov/mmb/ylin/pcpanl/rtma/v2p8/">pcpURMA</a>
                                      </div>
                             </div>
-                            <li><a href="scores/metviewer.html" accesskey="4" title="">PRECIP VERIF<br>SCORES ON<br>METVIEWER</a></li>
-                            <li><a href="/users/verification/precip/" accesskey="5" title="">&lsaquo;&lsaquo; RETURN TO<br><u>PRECIPITATION</u><br>VERIFICATION</a></li>
+                            <li><a href="../scores/metviewer.html" accesskey="4" title="">PRECIP VERIF<br>SCORES ON<br>METVIEWER</a></li>
                         </ul>
 		</div>
 	</div>
 	<div id="main">
 		<div id="banner">
-                    <iframe id="body_frame" src="php/main.php" width="1100" height="750" style="border: 1px solid black;"></iframe>
+                    <iframe id="body_frame" src="php/geo.php" width="1100" height="750" style="border: 1px solid black;"></iframe>
 		</div>
 		<div id="welcome">
                         <b>DISCLAIMER:</b> This webpage is not "operational" and is not subject to 24-h monitoring by NCEP's Central Operations staff.</font></p>
                 </div>
                 <div id="contact">
-                        <p><font size="2"><b>CONTACT INFORMATION</b><br>Ying.Lin@noaa.gov - precipitation analyses/verification<br>Jason.Levit@noaa.gov - VPPPG Branch Chief
+                        <p><font size="2"><b>CONTACT INFORMATION</b><br>Ying.Lin@noaa.gov - precipitation analyses/verification<br>Crystal.Logan@noaa.gov - Web Design<br>Jason.Levit@noaa.gov - VPPPG Branch Chief
                 </font></div>
                 <div id="footer">
 			<img src="/users/verification/style/images/noaa.png" alt="" width="100" />

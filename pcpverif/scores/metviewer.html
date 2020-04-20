@@ -17,31 +17,45 @@ Databases loaded:
 Currently the above servers are only accessible from within the NCEP firewall.
 </center>
 <P>
-For both servers, databases are loaded daily by an unattended cron job.  mv_ylin_pcp is loaded for daym9 and includes 6h FSS.  mv_ylin_pcp_erly is loaded for daym2 and does not include 6h FSS. <P>
+For both servers, databases are loaded daily by an unattended cron job.  mv_ylin_pcp is loaded for daym9 and includes 6h FSS.  mv_ylin_pcp_erly is loaded for daym2 and does not include 6h FSS. mv_ylin_metplus on the AWS server is loaded for $daym2.
 <P> 
 <H3>On <a HREF="https://metviewer.nws.noaa.gov">AWS server:</a></H3>
+Database <B>mv_ylin_metplus</B> goes back to 1 Oct 2019, unless otherwise noted.  There are some model stats from before Oct 2019 but those were not generated routinely.<br>
+<UL>
+  <LI>CMC, CMCGLB
+  <LI>CONUSFV3, from 2020/01/22
+  <LI>CONUSARW,CONUSARW2,CONUSNMMB,CONUSNEST, from 2020/01/27
+  <LI>FV3SAR, FV3SARX
+  <LI>GFS
+  <LI>HRRR, RAP (from 2019/10/05)
+  <LI>HRRRX (from 2019/11/19)
+  <LI>RAPX (from 2019/10/15)
+</UL>
+<P>
 Database <B>mv_ylin_pcp</B> goes back to 1 Jan 2019, with exceptions noted 
 in individule models:<br>
 <UL>
   <LI> CONUSNEST, GFS, HREF, HRRR, NAM. RAP
-  <LI> FV3GFS (ended after 12 June)
-  <LI> FV3NEST (suspended after 18 July)
+  <LI> CONUSNMMB, from 22 Nov 2019
+  <LI> FV3GFS (ended after 12 June 2019)
+  <LI> FV3NEST (suspended after 18 July 2019)
   <LI> FV3SAR
-  <LI> FV3SARX (began 22 June), 
-  <LI> FV3SARDA (suspended after 5 June)
-  <LI> GFSV14 (began 13 June)
+  <LI> FV3SARX (began 22 June 2019), 
+  <LI> FV3SARDA (suspended after 5 June 2019)
+  <LI> GFSV14 (2019/06/13 - 11/18)
 </UL>
 <p>
 Database <B>mv_ylin_pcp_erly</B> goes back to 1 June 2019, with exceptions noted 
 in individule models:<br>
 <UL>
   <LI> CONUSNEST, GFS, HRRR, NAM. RAP
-  <LI> FV3GFS (ended after 12 Jun)
-  <LI> FV3NEST (suspended after 18 Jul)
+  <LI> CONUSNMMB, from 16 Jan 2020
+  <LI> FV3GFS (ended after 12 Jun 2019)
+  <LI> FV3NEST (suspended after 18 Jul 2019)
   <LI> FV3SAR
-  <LI> FV3SARX (began 22 Jun)
-  <LI> FV3SARDA (suspended after 5 Jun)
-  <LI> GFSV14 (began 13 Jun)
+  <LI> FV3SARX (began 22 Jun 2019)
+  <LI> FV3SARDA (suspended after 5 Jun 2019)
+  <LI> GFSV14 (2019/06/13 - 11/18)
 </UL>
 <P>
 <H3>On old <a HREF="http://metviewerdev.ncep.noaa.gov/metviewer1.jsp">non-AWS server:</a></H3>
@@ -50,22 +64,27 @@ In database <B>mv_ylin_pcp</B>:<br>
 <UL>
   <LI>GFS, NAM, CONUSNEST, RAP, HRRR, HREF, going back to 1 June 2017
   <LI>FV3GFS, 1 Oct 2018 - 12 Jun 2019
-  <LI>GFSV14, from 13 Jun 2019
+  <LI>GFSV14 (2019/06/13 - 11/18)
   <LI>FV3NEST, starting 18 Dec 2018
   <LI>FV3SAR, starting 29 Nov 2018
   <LI>FV3SARX, starting 25 Jun 2019
   <LI>FV3SARDA, 7 Oct 2018 - 5 Jun 2019
+  <LI>RAPX, starting 20191015
+  <LI>HRRRX, starting 20191119
 </UL>
 <P>
 In database <B>mv_ylin_pcp_erly</B>: <P>
 <UL>
   <LI>CONUSNEST, GFS, HRRR, HRRRAK, NAM, RAP, from 1 Oct 2018
   <LI>FV3GFS, 1 Oct 2018 - 12 Jun 2019
-  <LI>GFSV14, from 13 Jun 2019
+  <LI>GFSV14 (2019/06/13 - 11/18)
   <LI>FV3NEST, 18 Dec 2018 - 18 Jul 2019
   <LI>FV3SAR, starting 29 Nov 2018
   <LI>FV3SARX, starting 25 Jun 2019
   <LI>FV3SARDA, 7 Oct 2018 - 5 Jun 2019
+  <LI>RAPX, starting 20191015
+  <LI>HRRRX, starting 20191119
+  <LI>HRRRAKX, 2019/10/15-11/15
 </UL>
 <P>
 Due to disk space limitations on the old METviewer server, the databases were often pruned.  Currently only a small subset of precip stats have been loaded. 

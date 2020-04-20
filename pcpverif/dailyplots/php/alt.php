@@ -3,10 +3,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-   <title>Download data for pcpRTMA/URMAv2.8, PCPANLv4.0</title>
-<link rel="stylesheet" type="text/css" href="main.css">
+<title>GFS vs. FV3GFS</title>
+<link rel="stylesheet" type="text/css" href="style.css">
 <script src="jquery-3.1.1.min.js"></script>
-<script type="text/javascript" src="functions.js"></script>
+<script type="text/javascript" src="functions_alt.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
@@ -16,20 +16,23 @@
 
 <!-- Head element -->
 <div class="page-top">
-	<span><a style="color:#ffffff">Download pcpRTMA/URMAv2.8/PCPANLv4.0.0 Data</a></span>
+	<span><a style="color:#ffffff">GLOBAL ENSEMBLE FORECAST SYSTEM (GEFS) VERIFICATION</a></span>
 </div>
 
 <!-- Top menu -->
 <div class="page-menu"><div class="table">
 	
-<!--        <div class="element">
-                <span class="bold">Valid:</span>
+        <div class="element">
+                <span class="bold">Valid Time:</span>
                 <select id="validtime" onchange="changeValidtime(this.value);"></select>
-            </div> 
-
+        </div>
         <div class="element">
                 <span class="bold">Season:</span>
                 <select id="season" onchange="changeSeason(this.value)"></select>
+        </div>
+        <div class="element">
+                <span class="bold">Level:</span>
+                <select id="level" onchange="changeLevel(this.value)"></select>
         </div>
         <div class="element">
                 <span class="bold">Region:</span>
@@ -39,64 +42,17 @@
                 <span class="bold">Statistic:</span>
                 <select id="variable" onchange="changeVariable(this.value)"></select>
         </div>
-        <div class="element">
-                <span class="bold">Level:</span>
-                <select id="level" onchange="changeLevel(this.value)"></select>
-        </div>
-
--->
 
 <!-- /Top menu -->
 </div></div>
 
 <!-- Middle menu -->
-<!-- <div class="page-middle" id="page-middle"> -->
+<div class="page-middle" id="page-middle">
+Left/Right arrow keys = Change level | Up/Down arrow keys = Change statistic
 <!-- /Middle menu -->
 </div>
 
-
 <div id="loading"><img style="width:100%" src="loading.png"></div>
-
-
-<body>
-<div id="pageContents">
-<center>
-<img src="https://www.emc.ncep.noaa.gov/GFS/gifs/ncep_logo.gif" alt="" wiidth="200" />
-</center>
-<br>
-<B>Pushed by NCO to para NOMADS:</B>
-<UL>
-   <LI><a href=https://para.nomads.ncep.noaa.gov/pub/data/nccf/com/rtma/para/
-       target="_blank">para.nomads.ncep.noaa.gov/pub/data/nccf/com/rtma/para/</a>rtma2p5.yyyymmdd - pcpRTMA v2.8.0
-   <LI><a href=https://para.nomads.ncep.noaa.gov/pub/data/nccf/com/urma/para/
-       target="_blank">para.nomads.ncep.noaa.gov/pub/data/nccf/com/urma/para/</a>pcpurma.yyyymmdd - pcpURMA v2.8.0
-   <LI><a href=https://para.nomads.ncep.noaa.gov/pub/data/nccf/com/pcpanl/para/
-       target="_blank">para.nomads.ncep.noaa.gov/pub/data/nccf/com/pcpanl/para/</a>pcpanl.yyyymmdd - PCPANL v4.0.0
-</UL>
-<P>
-<B>Old para output on development ftp site:</B>
-<UL>
-   <LI><a href=https://ftp.emc.ncep.noaa.gov/mmb/precip/rtma.v2.8.0/
-       target="_blank">ftp.emc.ncep.noaa.gov/mmb/precip/rtma.v2.8.0/</a>
-                        - pcpRTMA v2.8
-   <LI><a href=https://ftp.emc.ncep.noaa.gov/mmb/precip/urma.v2.8.0/
-       target="_blank">ftp.emc.ncep.noaa.gov/mmb/precip/urma.v2.8.0/</a>
-                        - pcpURMA v2.8
-   <LI><a href=https://ftp.emc.ncep.noaa.gov/mmb/precip/urma.v2.8.0.noblend/
-       target="_blank">ftp.emc.ncep.noaa.gov/mmb/precip/urma.v2.8.0.noblend/</a>
-                     - even older pcpURMA v2.8 parallel, w/o blending of 
-                        ConUS offshore filling
-   <LI><a href=https://ftp.emc.ncep.noaa.gov/mmb/precip/pcpanl.v4.0.0/
-       target="_blank">ftp.emc.ncep.noaa.gov/mmb/precip/pcpanl.v4.0.0/</a>
-                        - PCPANL v4.0.0
-</UL>
-
-</div>
-</body>
-
-
-
-
 
 <!-- Image -->
 <div id="page-map">
@@ -141,7 +97,7 @@ var domains = [];
 var levels = [];
 var seasons = [];
 var maptypes = [];
-var validtimes = []; 
+var validtimes = [];
 
 
 
@@ -219,10 +175,7 @@ levels.push({
 
 
 
-seasons.push({
-        displayName: "Spring 2019",
-        name: "spr2019",
-});
+
 seasons.push({
         displayName: "Winter 2018/2019",
         name: "win1819",
@@ -331,8 +284,8 @@ function initialize(){
 		variable: "roc",
 		domain: "nh",
 		level: "500",
-                season: "spr2019",
-//                validtime: "00Z",
+                season: "win1819",
+                validtime: "00Z",
 //                frame: startFrame,
 	};
 	
@@ -358,7 +311,7 @@ function initialize(){
 	populateMenu('domain');
 	populateMenu('level');
 	populateMenu('season');
- //       populateMenu('validtime');
+        populateMenu('validtime');
 	
 	//Populate the frames arrays
 	frames = [];
